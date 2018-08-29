@@ -1,0 +1,294 @@
+body { overflow:hidden;}
+.driving-area {
+  position: absolute;
+  top:205px;
+  width: 100%;
+}
+.large-truck-face-left {
+  position: absolute;
+  right: -18%;
+  -webkit-animation: large-truck-move-left 30s linear infinite;
+          animation: large-truck-move-left 30s linear infinite;
+      -webkit-animation-delay:6s;
+            animation-delay:6s;
+}
+.large-tire1-left {
+ -webkit-transform-origin: 50px 96px;
+     -ms-transform-origin: 50px 96px;
+         transform-origin: 50px 96px;
+  -webkit-animation: wheels-left 0.3s linear infinite;
+          animation: wheels-left 0.3s linear infinite;
+}
+.large-tire2-left {
+ -webkit-transform-origin: 163px 96px;
+     -ms-transform-origin: 163px 96px;
+         transform-origin: 163px 96px;
+  -webkit-animation: wheels-left 0.3s linear infinite;
+          animation: wheels-left 0.3s linear infinite;
+}
+.large-tire3-left {
+ -webkit-transform-origin: 200px 96px;
+     -ms-transform-origin: 200px 96px;
+         transform-origin: 200px 96px;
+  -webkit-animation: wheels-left 0.3s linear infinite;
+          animation: wheels-left 0.3s linear infinite;
+}
+.large-tire4-left {
+ -webkit-transform-origin: 373px 96px;
+     -ms-transform-origin: 373px 96px;
+         transform-origin: 373px 96px;
+  -webkit-animation: wheels-left 0.3s linear infinite;
+          animation: wheels-left 0.3s linear infinite;
+}
+.large-tire5-left {
+ -webkit-transform-origin: 410px 96px;
+     -ms-transform-origin: 410px 96px;
+         transform-origin: 410px 96px;
+  -webkit-animation: wheels-left 0.3s linear infinite;
+          animation: wheels-left 0.3s linear infinite;
+}
+.large-tire6-left {
+ -webkit-transform-origin: 446px 96px;
+     -ms-transform-origin: 446px 96px;
+         transform-origin: 446px 96px;
+  -webkit-animation: wheels-left 0.3s linear infinite;
+          animation: wheels-left 0.3s linear infinite;
+}
+.large-truck-face-right {
+  position: absolute;
+  left: -18%;
+  -webkit-animation: large-truck-move-right 24s linear infinite;
+          animation: large-truck-move-right 24s linear infinite;
+    -webkit-animation-delay:26s;
+            animation-delay:26s;
+}
+.large-tire1-right {
+-webkit-transform-origin: 475px 96px;
+    -ms-transform-origin: 475px 96px;
+        transform-origin: 475px 96px;
+  -webkit-animation: wheels-right 0.3s linear infinite;
+          animation: wheels-right 0.3s linear infinite;
+}
+.large-tire2-right {
+ -webkit-transform-origin: 362px 96px;
+     -ms-transform-origin: 362px 96px;
+         transform-origin: 362px 96px;
+  -webkit-animation: wheels-right 0.3s linear infinite;
+          animation: wheels-right 0.3s linear infinite;
+}
+.large-tire3-right {
+ -webkit-transform-origin: 325px 96px;
+     -ms-transform-origin: 325px 96px;
+         transform-origin: 325px 96px;
+  -webkit-animation: wheels-right 0.3s linear infinite;
+          animation: wheels-right 0.3s linear infinite;
+}
+.large-tire4-right {
+ -webkit-transform-origin: 153px 96px;
+     -ms-transform-origin: 153px 96px;
+         transform-origin: 153px 96px;
+  -webkit-animation: wheels-right 0.3s linear infinite;
+          animation: wheels-right 0.3s linear infinite;
+}
+.large-tire5-right {
+ -webkit-transform-origin: 117px 96px;
+     -ms-transform-origin: 117px 96px;
+         transform-origin: 117px 96px;
+  -webkit-animation: wheels-right 0.3s linear infinite;
+          animation: wheels-right 0.3s linear infinite;
+}
+.large-tire6-right {
+ -webkit-transform-origin: 79px 96px;
+     -ms-transform-origin: 79px 96px;
+         transform-origin: 79px 96px;
+  -webkit-animation: wheels-right 0.3s linear infinite;
+          animation: wheels-right 0.3s linear infinite;
+}
+
+.mid-truck-face-right {
+  position: absolute;
+  left: -10%;
+  -webkit-animation: mid-truck-move-right 28s linear infinite;
+          animation: mid-truck-move-right 28s linear infinite;
+    -webkit-animation-delay:14s;
+            animation-delay:14s;
+}
+.mid-tire1-right {
+-webkit-transform-origin: 203px 72px;
+    -ms-transform-origin: 203px 72px;
+        transform-origin: 203px 72px;
+  -webkit-animation: wheels-right 0.3s linear infinite;
+          animation: wheels-right 0.3s linear infinite;
+}
+.mid-tire2-right {
+-webkit-transform-origin: 86px 72px;
+    -ms-transform-origin: 86px 72px;
+        transform-origin: 86px 72px;
+  -webkit-animation: wheels-right 0.3s linear infinite;
+          animation: wheels-right 0.3s linear infinite;
+}
+.mid-tire3-right {
+-webkit-transform-origin: 55px 72px;
+    -ms-transform-origin: 55px 72px;
+        transform-origin: 55px 72px;
+  -webkit-animation: wheels-right 0.3s linear infinite;
+          animation: wheels-right 0.3s linear infinite;
+}
+
+.small-truck-face-left {
+  position: absolute;
+  right: -10%;
+  -webkit-animation: small-truck-move-left 23s linear infinite;
+          animation: small-truck-move-left 23s linear infinite;
+    -webkit-animation-delay: 21s;
+            animation-delay: 21s;
+}
+.small-tire1-left {
+-webkit-transform-origin: 23px 69px;
+    -ms-transform-origin: 23px 69px;
+        transform-origin: 23px 69px;
+  -webkit-animation: wheels-left 0.3s linear infinite;
+          animation: wheels-left 0.3s linear infinite;
+}
+.small-tire2-left {
+-webkit-transform-origin: 120px 69px;
+    -ms-transform-origin: 120px 69px;
+        transform-origin: 120px 69px;
+  -webkit-animation: wheels-left 0.3s linear infinite;
+          animation: wheels-left 0.3s linear infinite;
+}
+
+@-webkit-keyframes wheels-left {
+  0% {
+    -webkit-transform:rotate(0deg);
+            transform:rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform:rotate(-360deg);
+            transform:rotate(-360deg);
+  }
+}
+
+@keyframes wheels-left {
+  0% {
+    -webkit-transform:rotate(0deg);
+            transform:rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform:rotate(-360deg);
+            transform:rotate(-360deg);
+  }
+}
+@-webkit-keyframes wheels-right {
+  0% {
+    -webkit-transform:rotate(0deg);
+            transform:rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform:rotate(360deg);
+            transform:rotate(360deg);
+  }
+}
+@keyframes wheels-right {
+  0% {
+    -webkit-transform:rotate(0deg);
+            transform:rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform:rotate(360deg);
+            transform:rotate(360deg);
+  }
+}
+@-webkit-keyframes large-truck-move-left {
+  0% {
+    -webkit-transform:translateX(0%);
+            transform:translateX(0%);
+  }
+
+  100% {
+    -webkit-transform:translateX(-1500%);
+            transform:translateX(-1500%);
+  }
+}
+@keyframes large-truck-move-left {
+  0% {
+    -webkit-transform:translateX(0%);
+            transform:translateX(0%);
+  }
+
+  100% {
+    -webkit-transform:translateX(-1500%);
+            transform:translateX(-1500%);
+  }
+}
+@-webkit-keyframes large-truck-move-right {
+  0% {
+    -webkit-transform:translateX(0%);
+            transform:translateX(0%);
+  }
+
+  100% {
+    -webkit-transform:translateX(1500%);
+            transform:translateX(1500%);
+  }
+}
+@keyframes large-truck-move-right {
+  0% {
+    -webkit-transform:translateX(0%);
+            transform:translateX(0%);
+  }
+
+  100% {
+    -webkit-transform:translateX(1500%);
+            transform:translateX(1500%);
+  }
+}
+@-webkit-keyframes mid-truck-move-right {
+  0% {
+    -webkit-transform:translateX(0%);
+            transform:translateX(0%);
+  }
+
+  100% {
+    -webkit-transform:translateX(2100%);
+            transform:translateX(2100%);
+  }
+}
+@keyframes mid-truck-move-right {
+  0% {
+    -webkit-transform:translateX(0%);
+            transform:translateX(0%);
+  }
+
+  100% {
+    -webkit-transform:translateX(2100%);
+            transform:translateX(2100%);
+  }
+}
+
+@-webkit-keyframes small-truck-move-left {
+  0% {
+    -webkit-transform:translateX(0%);
+            transform:translateX(0%);
+  }
+
+  100% {
+    -webkit-transform:translateX(-3000%);
+            transform:translateX(-3000%);
+  }
+}
+@keyframes small-truck-move-left {
+  0% {
+    -webkit-transform:translateX(0%);
+            transform:translateX(0%);
+  }
+
+  100% {
+    -webkit-transform:translateX(-3000%);
+            transform:translateX(-3000%);
+  }
+}

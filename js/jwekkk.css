@@ -1,0 +1,524 @@
+/* DEMO STYLES */
+$opensans: 'Open Sans', sans-serif;
+
+* {
+  font-family: $opensans;
+  font-weight: 300;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #fefefe;
+}
+
+.nested {
+  background-color: #2c8ac9;
+  border-radius: 5px;
+}
+
+.box {
+  padding: .5em;
+  text-align: center;
+  color: #222;
+  background-color: #e74c3c;
+  opacity: .8;
+  border-radius: 2px;
+  width: 100%;
+}
+
+.row-wrapper {
+  padding: 4rem 0;
+  
+  &:after {
+    content: "";
+    height: 1px;
+    background: linear-gradient(to right,  rgba(0,0,0,.1) 0%, #fff 50%,rgba(0,0,0,.1) 100%);
+    display: flex;
+    margin-top: 1rem;
+  }
+}
+
+.heading {
+  font-size: 1.75em;
+  padding-left: .25em;
+  color: #333;
+}
+
+$map: ( 1:8.3333%, 2:16.6666%, 3:25%, 4:33.3333%, 5:41.6666%, 6:50%, 7:58.3333%, 8:66.6666%, 9:75%, 10:83.3333%, 11:91.6666%, 12:100%);
+
+@mixin lattice-flex-column($colnum) {
+    flex: 0;
+    flex-basis: map-get($map, $colnum);
+    width: map-get($map, $colnum);
+    max-width: map-get($map, $colnum);
+}
+
+@mixin lattice-offset($colnum) {
+    margin-left: map-get($map, $colnum);
+}
+
+@mixin lattice-offset-breakpoint($class, $colnum) {
+    @include lattice-breakpoint($class) {
+        @include lattice-offset($colnum);
+    }
+}
+
+@mixin lattice-col-breakpoint($class, $colnum) {
+    @include lattice-breakpoint($class) {
+        @include lattice-flex-column($colnum);
+    }
+}
+
+@mixin lattice-breakpoint($class) {
+    @if $class == xs {
+        @media screen {
+            @content;
+        }
+    }
+
+    @else if $class == sm {
+        @media screen and (min-width: 768px) {
+            @content;
+        }
+    }
+
+    @else if $class == md {
+        @media screen and (min-width: 992px) {
+            @content;
+        }
+    }
+
+    @else if $class == lg {
+        @media screen and (min-width: 1200px) {
+            @content;
+        }
+    }
+
+    @else {
+        @warn "lattice-breakpoint mixin supports: xs, sm, md, lg";
+    }
+}
+
+@mixin lattice-vis-breakpoint($class) {
+    @if $class == xs {
+        @media (max-width: 767px) {
+            @content;
+        }
+    }
+
+    @else if $class == sm {
+        @media (min-width: 768px) and (max-width: 991px) {
+            @content;
+        }
+    }
+
+    @else if $class == md {
+        @media (min-width: 992px) and (max-width: 1199px) {
+            @content;
+        }
+    }
+
+    @else if $class == lg {
+        @media screen and (min-width: 1200px) {
+            @content;
+        }
+    }
+
+    @else {
+        @warn "lattice-breakpoint mixin supports: xs, sm, md, lg";
+    }
+}
+
+.lattice {
+
+    &-hidden {
+
+        @include lattice-vis-breakpoint(xs) {
+            display: none;
+        }
+
+
+        &-sm {
+            @include lattice-vis-breakpoint(sm) {
+                display: none;
+            }
+        }
+
+        &-md {
+            @include lattice-vis-breakpoint(md) {
+                display: none;
+            }
+        }
+
+        &-lg {
+            @include lattice-vis-breakpoint(lg) {
+                display: none;
+            }
+        }
+    }
+
+    &-visible {
+
+        @include lattice-vis-breakpoint(xs) {
+            display: initial;
+        }
+
+
+        &-sm {
+            @include lattice-vis-breakpoint(sm) {
+                display: initial;
+            }
+        }
+
+        &-md {
+            @include lattice-vis-breakpoint(md) {
+                display: initial;
+            }
+        }
+
+        &-lg {
+            @include lattice-vis-breakpoint(lg) {
+                display: initial;
+            }
+        }
+    }
+}
+
+.lattice-row {
+    display: flex;
+    flex-wrap: wrap;
+    min-height: min-content;
+  
+    /* With padding*/
+    &-padded {
+        @extend .lattice-row;
+        .lattice-col {
+            padding: .5rem;
+        }
+
+        &-between {
+            @extend .lattice-row;
+            .lattice-col {
+                padding: 0 .5rem;
+
+                &:first-child {
+                    padding-left: 0;
+                }
+
+                &:last-child {
+                    padding-right: 0;
+                }
+            }
+        }
+
+        &-around {
+            @extend .lattice-row;
+            .lattice-col {
+                padding: .5rem 0;
+              
+              &:first-child {
+                padding-left: .5rem;
+              }
+              
+              &:last-child {
+                padding-right: .5rem;
+              }
+            }
+        }
+      
+        &-vertically {
+            @extend .lattice-row;
+            .lattice-col {
+                padding: .5rem 0;
+              
+            }
+        }
+      
+        &-horizontally {
+            @extend .lattice-row;
+            .lattice-col {
+                padding: 0 .5rem;
+              
+            }
+        }
+    }
+
+
+    &-nowrap {
+        @extend .lattice-row;
+        flex-wrap: nowrap;
+
+         &-sm {
+            @extend .lattice-row;
+            @include lattice-breakpoint(sm) {
+                flex-wrap: nowrap;
+            }
+        }
+
+        &-md {
+            @extend .lattice-row;
+            @include lattice-breakpoint(md) {
+                flex-wrap: nowrap;
+            }
+        }
+
+        &-lg {
+            @extend .lattice-row;
+            @include lattice-breakpoint(lg) {
+                flex-wrap: nowrap;
+            }
+        }
+    }
+
+    &-wrap {
+        @extend .lattice-row;
+        flex-wrap: wrap;
+
+        &-sm {
+            @extend .lattice-row;
+            @include lattice-breakpoint(sm) {
+                flex-wrap: wrap;
+            }
+        }
+
+        &-md {
+            @extend .lattice-row;
+            @include lattice-breakpoint(md) {
+                flex-wrap: wrap;
+            }
+        }
+
+        &-lg {
+            @extend .lattice-row;
+            @include lattice-breakpoint(lg) {
+                flex-wrap: wrap;
+            }
+        }
+    }
+
+    &-reverse {
+        @extend .lattice-row;
+        flex-direction: row-reverse;
+    }
+    /* Alignment per row */
+    &-top {
+        @extend .lattice-row;
+        align-items: flex-start;
+    }
+
+    &-right {
+        @extend .lattice-row;
+        justify-content: flex-end;
+    }
+
+    &-left {
+        @extend .lattice-row;
+        justify-content: flex-start;
+    }
+
+    &-around {
+        @extend .lattice-row;
+        justify-content: space-around;
+    }
+
+    &-between {
+        @extend .lattice-row;
+        justify-content: space-between;
+    }
+
+    &-bottom {
+        @extend .lattice-row;
+        align-items: flex-end;
+    }
+
+    &-v-center {
+        align-items: center;
+    }
+
+    &-h-center {
+        @extend .lattice-row;
+        justify-content: center;
+    }
+
+    &-fit {
+      @extend .lattice-row;
+      > .lattice-col {
+        flex: 1;
+      }
+    }
+
+    &-full {
+      @extend .lattice-row;
+      .lattice-col {
+        flex: 0 1 100% !important;
+      }
+    }
+
+    &-one-half {
+      @extend .lattice-row;
+      .lattice-col {
+        flex: 0 0 50% !important;
+      }
+    }
+
+    &-one-third {
+      @extend .lattice-row;
+      .lattice-col {
+        flex: 0 1 33.3333% !important;
+      }
+    }
+
+    &-one-quarter {
+      @extend .lattice-row;
+      .lattice-col {
+        flex: 0 1 25% !important;
+      }
+    }
+}
+
+/* Columns */
+.lattice-col {
+    flex: 1;
+    min-height: min-content;
+    
+    /* Alignment per column */
+    &-align {
+      &-top {
+        @extend .lattice-col;
+        align-self: flex-start;
+      }
+      
+      &-bottom {
+        @extend .lattice-col;
+        align-self: flex-end;
+      }
+      
+      &-center {
+        @extend .lattice-col;
+        align-self: center;
+      }
+    }
+
+    &-justify {
+      &-right {
+        @extend .lattice-col;
+        display: flex;
+        justify-content: flex-end;
+      }
+      
+      &-center {
+        @extend .lattice-col;
+        display: flex;
+        justify-content: center;
+      }
+    }
+
+    &-fullheight {
+        @extend .lattice-col;
+        display: flex;
+    }
+  
+    $i: 0;
+
+    @while $i <= 12 {
+        &-#{$i} {
+            @extend .lattice-col;
+            @include lattice-flex-column($i);
+        }
+
+        $i: $i+1;
+    }
+
+
+    &-sm {
+        $i: 0;
+
+        @while $i <= 12 {
+            &-#{$i} {
+                @extend .lattice-col;
+                @include lattice-col-breakpoint(sm, $i);
+            }
+
+            $i: $i+1;
+        }
+    }
+
+    &-md {
+        $i: 0;
+
+        @while $i <= 12 {
+            &-#{$i} {
+                @extend .lattice-col;
+                @include lattice-col-breakpoint(md, $i);
+            }
+
+            $i: $i+1;
+        }
+    }
+
+    &-lg {
+        $i: 0;
+
+        @while $i <= 12 {
+            &-#{$i} {
+                @extend .lattice-col;
+                @include lattice-col-breakpoint(lg, $i);
+            }
+
+            $i: $i+1;
+        }
+    }
+
+    &-offset {
+        $i: 0;
+
+        @while $i <= 12 {
+            &-#{$i} {
+                @extend .lattice-col;
+                @include lattice-offset($i);
+            }
+
+            $i: $i+1;
+        }
+
+
+        &-sm {
+            $i: 0;
+
+            @while $i <= 12 {
+                &-#{$i} {
+                    @extend .lattice-col;
+                    @include lattice-offset-breakpoint(sm, $i);
+                }
+
+                $i: $i+1;
+            }
+        }
+
+        &-md {
+            $i: 0;
+
+            @while $i <= 12 {
+                &-#{$i} {
+                    @extend .lattice-col;
+                    @include lattice-offset-breakpoint(md, $i);
+                }
+
+                $i: $i+1;
+            }
+        }
+
+        &-lg {
+            $i: 0;
+
+            @while $i <= 12 {
+                &-#{$i} {
+                    @extend .lattice-col;
+                    @include lattice-offset-breakpoint(lg, $i);
+                }
+
+                $i: $i+1;
+            }
+        }
+    }
+}

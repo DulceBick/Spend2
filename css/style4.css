@@ -1,0 +1,61 @@
+#map {
+	-webkit-animation: rotate 600s infinite linear;
+	        animation: rotate 600s infinite linear;
+	width:140%;
+	height:400%;
+	background:#000 url(http://www.loadinfo.net/main/download?spinner=4809&disposition=inline) 50% 50% no-repeat;
+	position:absolute;
+	left:-20%;
+	top:-150%;
+	z-index:0;
+}
+#map.done {
+	background-size:100% auto;
+}
+
+#shadow {
+  position:absolute;
+  z-index:10;
+  left:0;
+  top:0;
+	width:100%;
+  height:100%;
+  background: -webkit-radial-gradient(center, ellipse cover, rgba(0,0,0,0) 0,rgba(0,0,0,1) 90%);
+  background: radial-gradient(center, ellipse cover, rgba(0,0,0,0) 0,rgba(0,0,0,1) 90%);
+
+  color:rgba(255,255,255,.5);
+  font:bold 64px/128px Verdana,Tahoma;
+  padding:0 40px;
+
+  text-shadow:0 0 16px rgba(255,255,255,.3);
+}
+
+@-webkit-keyframes rotate {
+	0% {
+		-webkit-transform: rotate(0deg) scale(.8) translate3d(0,0,0);
+		        transform: rotate(0deg) scale(.8) translate3d(0,0,0);
+	}
+	50% {
+		-webkit-transform: rotate(180deg) scale(1.2) translate3d(0,0,0);
+		        transform: rotate(180deg) scale(1.2) translate3d(0,0,0);
+	}
+	100% {
+		-webkit-transform: rotate(360deg) scale(.8) translate3d(0,0,0);
+		        transform: rotate(360deg) scale(.8) translate3d(0,0,0);
+	}
+}
+
+@keyframes rotate {
+	0% {
+		-webkit-transform: rotate(0deg) scale(.8) translate3d(0,0,0);
+		        transform: rotate(0deg) scale(.8) translate3d(0,0,0);
+	}
+	50% {
+		-webkit-transform: rotate(180deg) scale(1.2) translate3d(0,0,0);
+		        transform: rotate(180deg) scale(1.2) translate3d(0,0,0);
+	}
+	100% {
+		-webkit-transform: rotate(360deg) scale(.8) translate3d(0,0,0);
+		        transform: rotate(360deg) scale(.8) translate3d(0,0,0);
+	}
+}
